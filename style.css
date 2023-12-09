@@ -1,0 +1,215 @@
+/* ======== RESET =========*/
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* ======== VARIABLES =========*/
+:root {
+  font-size: 25%;
+  /* fonts type */
+  --poppins-font: "Poppins", sans-serif;
+
+  /* fonts size */
+  --large-font-size: 10rem;
+  --small-font-size: 4rem;
+
+  /* colors */
+  --bg-gradient: linear-gradient(
+    90deg,
+    rgb(255, 51, 102) 0%,
+    rgb(255, 133, 163) 90%
+  );
+  --contrast-color: rgb(255, 29, 86);
+  --ligther-color: #bdbdbd;
+  --darker-color: #2c2c2c;
+}
+
+/* ======== LAYOUT =========*/
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.guessArea {
+  display: grid;
+  grid-template-areas:
+    "h1"
+    "info"
+    "num"
+    "tips"
+    "adv"
+    "attempts"
+    "wrong";
+  grid-template-columns: 1fr;
+
+  padding: 50px;
+  text-align: center;
+  border-radius: 45px;
+  background: #fff;
+  box-shadow: 0px 0px 10px 6px rgba(255, 255, 255, 0.2);
+}
+
+body {
+  font-family: var(--poppins-font);
+  font-size: var(--large-font-size);
+  background: var(--bg-gradient);
+}
+
+.h1 {
+  grid-area: h1;
+
+  font-size: var(--large-font-size);
+}
+
+.info {
+  grid-area: info;
+
+  font-size: var(--small-font-size);
+}
+
+.num {
+  grid-area: num;
+
+  font-size: 120px;
+  color: var(--contrast-color);
+}
+
+.tips {
+  grid-area: tips;
+
+  display: none;
+  font-size: var(--small-font-size);
+  color: rgb(255, 153, 0);
+}
+
+.show-tips {
+  display: block;
+}
+
+.adv {
+  grid-area: adv;
+
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.tryNum {
+  border-radius: 45px 0 0 45px;
+  border: 1px solid var(--contrast-color);
+  padding: 0 25px;
+  font-size: var(--small-font-size);
+}
+
+.advButton {
+  cursor: pointer;
+  padding: 10px;
+  background: white;
+  border: 1px solid var(--contrast-color);
+  border-radius: 0 45px 45px 0;
+  color: var(--contrast-color);
+  font-size: var(--small-font-size);
+}
+
+.advButton:hover {
+  background: var(--contrast-color);
+  color: white;
+}
+
+.attempts {
+  grid-area: attempts;
+
+  font-size: var(--small-font-size);
+  padding-top: 30px;
+}
+
+.wrong {
+  grid-area: wrong;
+  display: none;
+  color: red;
+  font-size: var(--small-font-size);
+}
+
+.show-wrong {
+  display: block;
+}
+
+/* Msg de vitória */
+.winning-message {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  flex-direction: column;
+}
+
+.winning-message-button {
+  font-size: var(--small-font-size);
+  background-color: var(--contrast-color);
+  font-family: var(--poppins-font);
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  margin-top: 16px;
+  color: white;
+}
+
+.winning-message-button:hover {
+  background-color: white;
+  color: var(--contrast-color);
+}
+
+.winning-message-text {
+  color: white;
+  font-size: var(--large-font-size);
+  font-family: var(--poppins-font);
+}
+
+.show-winning-message {
+  display: flex;
+}
+
+@media (max-width: 650px) {
+  .guessArea {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    text-align: center;
+  }
+
+  .tryNum {
+    width: 100%;
+  }
+}
